@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<!-----------------------------------------------------Réalisé en partenariat avec la team #MTP_02----------------------------------------------------------------------------------------->
+    <meta charset="utf-8" >
+    <title>Shifumi</title>
+    <!-- FEUILLE DE STYLE -->
+    <style>
+      body {
+         background: linear-gradient(to left, #666699 0%, #99ccff 100%);
+        }
+      p{
+        font-size : 18px;
+      }
+      span{
+        color : red;
+        text-align : center;
+        font-size : 36px;
+        text-shadow: 0    0   2px #fefcc9,
+        1px -1px 3px #feec85,
+        -2px -2px 4px #ffae34,
+        2px -4px 5px #ec760c,
+        -2px -6px 6px #cd4606,
+        0   -8px 7px #973716,
+        1px -9px 8px #451b0e;
+      }
+      h1 {
+        color : red;
+        text-align : center;
+        font-size : 60px;
+        text-decoration : underline;
+        text-shadow: 0    0   2px #fefcc9,
+        1px -1px 3px #feec85,
+        -2px -2px 4px #ffae34,
+        2px -4px 5px #ec760c,
+        -2px -6px 6px #cd4606,
+        0   -8px 7px #973716,
+        1px -9px 8px #451b0e;
+        }
+      strong{
+        font-size : 24px;
+        text-shadow : 1px 1px 2px red; 
+        }
+      em{
+        text-shadow : 1px 1px 2px red;
+        }
+      select{
+        width : 100px;
+        height : 35px;
+        }
+      button {
+        color : red;
+        width : 100px;
+        height : 35px;
+        box-shadow : 0px 2px 2px #feec85, 0 2px 2px  #feec85;     
+        border-radius : 9px;
+        background-image : radial-gradient(#99ccff,#666699);
+        text-shadow: 1px 1px 1px silver;
+        }
+        button:hover{
+          font-weight: bold;
+          box-shadow : 0 2px 3px #fec685, 0 2px 3px #feec85,
+                       0 3px 4px #ffad33, 0 3px 4px #ffad33,
+                       0 4px 5px #e67300, 0 4px 5px #e67300,
+                       0 5px 6px #ff3300, 0 5px 6px #ff3300;
+
+
+        }
+      #jeu {
+        text-align : center;
+      }
+	  .fin{
+		position : absolute;
+		bottom : 0;
+    margin-bottom: 0.5%;
+		margin-left : 680px;
+		color : red;
+		text-align : center;
+		text-shadow: 0    0   2px #fefcc9,
+        1px -1px 3px #feec85,
+        -2px -2px 4px #ffae34,
+        2px -4px 5px #ec760c,
+        -2px -6px 6px #cd4606,
+        0   -8px 7px #973716,
+        1px -9px 8px #451b0e;
+		}
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      height: 5%;
+      width: 100%;
+      background: radial-gradient(#99ccff,black);
+      box-shadow: 0    0   2px #fefcc9,
+        1px -1px 3px  #feec85,
+        -2px -2px 4px #ffae34,
+        2px -4px 5px #ec760c,
+        -2px -6px 6px #cd4606,
+        0   -8px 7px #973716,
+        1px -9px 8px #451b0e;
+    }
+    </style>        
+  </head>
+  <body>
+    <!--  PARTIE TITRE & CHOIX -->
+    <h1 onmouseover="this.innerHTML='by #Mtp_02';" onmouseout="this.innerHTML='SHIFUMI';">SHIFUMI</h1>
+      <div id="jeu">
+        <p><strong>Bonjour, nous allons jouer à pierre, feuille, ciseaux !</strong></p><br>
+        <p><em>Je vous laisse choisir parmi ces trois propositions :</em></p><br><br><br>
+        <!-- CHOIX SUR MENU DEROULANT -->
+        <div id"choicesU">
+               <img src="pierre.png" alt="Pierre" height="100" width="100" id="choix" value="Pierre" onclick="let_go('Pierre')">&emsp;&emsp;&emsp;&emsp;                        <!--<select id="propositions" name="propositions">-->
+               <img src="feuille.png" alt="Feuille" height="100" width="100" id="choix" value="Feuille" onclick="let_go('Feuille')">&emsp;&emsp;&emsp;&emsp;                    <!--<option value="Pierre">PIERRE</option>-->
+               <img src="ciseaux.png" alt="Ciseaux" height="100" width="100" id="choix" value="Ciseaux" onclick="let_go('Ciseaux')">                                            <!--<option value="Feuille">FEUILLE</option>-->                                          
+        </div><br><br><br>                                                                                                                                                      <!--<option value="Ciseaux">CISEAUX</option>-->                                                                                                                                                                          <!--</select>-->                                                                                                                      
+        <!-- LES BOUTONS -->
+        <!--<button type="button" autofocus="autofocus" id="stop" onclick="let_go()">Let's go !</button>-->
+        <button type="button" autofocus="autofocus" onclick="reset()">Reset game</button><br><br><br>
+        <!-- SECTION RESULTAT -->
+        <div id="result"></div><br>
+        <div id="user_score"></div><br>
+        <div id="computer_score"></div><br><br><br>
+        <marquee behavior = "alternate" scrolldelay = "50">
+          <div id="end_game"></div>
+        </marquee>
+		
+      </div>
+  <footer>
+    <p class="fin">Copyright 2017 - beWeb - Tous droits réservés © propulsé par Fondespierre</p>
+  </footer>
+      <!-- PARTIE SCRIPT -->
+      <script>
+        // VARIABLES GLOBALE
+        let user_score = 0;
+        let computer_score = 0;
+        let result_text = "";
+        let result = document.getElementById("result");
+        // ALGORITHME ET CONDITIONS
+        function compare (user_choice, computer_choice) {
+          if (user_choice === computer_choice) {
+            result_text = "ÉGALITÉ !";
+          }		 else if ((user_choice === "Pierre" && computer_choice === "Ciseaux") || (user_choice === "Feuille" && computer_choice === "Pierre") || (user_choice === "Ciseaux" && computer_choice === "Feuille")){
+					result_text = "VOUS AVEZ GAGNÉ !";
+					user_score = ++user_score;
+					document.getElementById("user_score").innerHTML="<b>Votre score est de : </b>" + user_score;
+					}  else {
+						result_text = "VOUS AVEZ PERDU !";
+						computer_score = ++computer_score;
+						document.getElementById("computer_score").innerHTML="<b>Le score de DEEP BLUE est de : </b>" + computer_score;
+						}
+        // AFFICHAGE DES RESULTATS DE L'ALGO
+          document.getElementById("result").innerHTML ="<b>Choix Joueur : </b>" + user_choice + "<br><br><b>Choix Deep Blue : </b>" + computer_choice + "<br><br><strong>RÉSULTAT : </strong>" + result_text;
+          }
+        // FONCTION BOUTON LET'S GO
+        function let_go (valeur) {
+          let user_choice = valeur;
+          let choices = ["Pierre", "Feuille", "Ciseaux"];
+          computer_choice = choices[Math.floor(Math.random() * choices.length)];                               //choices[getRandomInt(0, 3)];
+          compare(user_choice, computer_choice);
+			if (user_score == 5){
+				document.getElementById("end_game").innerHTML="<span>VOUS AVEZ GAGNÉ LA PARTIE !</span>";
+				document.getElementById("choix").disabled=true;
+				}
+				else if (computer_score == 5){
+					document.getElementById("end_game").innerHTML="<span>DEEP BLUE A GAGNÉ LA PARTIE !</span>";
+					document.getElementById("choix").disabled=true;
+						}
+		};
+        // FONCTION BOUTON RESET
+        function reset() {
+          user_score = 0;
+          computer_score = 0;
+          result_text = "";
+          document.getElementById("result").innerHTML="";
+          document.getElementById("user_score").innerHTML="";
+          document.getElementById("computer_score").innerHTML="";
+          document.getElementById("end_game").innerHTML="";
+		  document.getElementById("choix").disabled=false;
+        }
+    </script>
+	
+  </body>
+</html>

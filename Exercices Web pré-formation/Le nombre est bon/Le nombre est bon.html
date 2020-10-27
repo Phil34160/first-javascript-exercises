@@ -1,0 +1,246 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Le nombre est bon</title>
+		<style>
+			h1{
+				padding-top: 20px;
+				color: white;
+				margin-top: 0;
+				text-align: center;
+				font-size: 48px;
+				font-style: italic;
+				text-shadow: 0    0   2px #80bfff,
+       						 1px -1px 3px #4da6ff,
+        					-2px -2px 4px #1a8cff,
+      						 2px -4px 5px #0073e6,
+        					-2px -6px 6px #004d99,
+       						 0   -8px 7px #00264d,
+        					 1px -9px 8px #000d1a;
+            }
+            header{
+                float: left;
+				left: 0;
+				margin-left: 0;
+				margin-top: 0;
+                height: 100%;
+                width: 24%;
+                background-image: url(fd9.jpg); 
+				background-repeat: no-repeat;
+				background-size: 470px 1000px;                                                           /*background : radial-gradient(#595959,#000000);*/
+				text-align: center;
+				box-shadow: -2px 3px 10px #004d99 inset,
+        					-3px 4px 25px white inset;
+            }
+            h2{
+                color: white;
+                text-align: center;
+				text-decoration: underline;
+				font-size: 36px;
+				font-style: italic;
+				text-shadow:  0    0   2px #80bfff,
+       						 1px -1px 3px #4da6ff,
+        					-2px -2px 4px #1a8cff,
+      						 2px -4px 5px #0073e6,
+        					-2px -6px 6px #004d99,
+       						 0   -8px 7px #00264d,
+        					 1px -9px 8px #000d1a;
+            }
+            #rdj{
+                font-size: 24px;
+                color: white;
+            }
+            #main{
+				padding-top: 12%;
+                text-align: center;
+                width: 100%;
+            }
+			body,html{
+				
+				background-image: url(fd9.jpg);
+			 	height : 100%; 
+			 	margin: auto;
+			}
+			
+			button {
+				background: radial-gradient(#ffffff,#003380);
+				border-radius:12px 0 12px 0;
+				height: 30px;
+				width: 80px;
+				margin: 16px;
+			}
+			button:hover{
+				box-shadow: 0 5px 7px #0066cc, 0 5px 7px black;
+				font-weight: bold;
+			}
+			span {
+				font-size: 24px;
+				text-shadow: 0    0   1px #80bfff,
+       						 1px -1px 2px #4da6ff,
+        					-1px -1px 2px #1a8cff,
+      						 1px -1px 2px #0073e6,
+        					-1px -1px 1px #004d99,
+       						 0   -2px 1px #00264d,
+							 1px -2px 1px #000d1a;
+				font-style: italic;
+				font-weight: bold;
+				color: white;
+			}
+			input {
+				-webkit-border-radius: 45px;
+				-moz-border-radius: 45px;
+				border-radius: 45px;
+				text-align: center;
+				height: 35px;
+				background-image: url(anim1.gif);
+				color: white;
+				font-size: 18px;
+				box-shadow: 0 5px 7px #0066cc, 0 5px 7px black;
+			}
+			input[type=number] {
+    			-moz-appearance: textfield;
+			}			
+			input::-webkit-inner-spin-button,input::-webkit-outer-spin-button { 
+					-webkit-appearance: none;
+					margin:0;
+			}
+			#lui,#vous{
+				float: right;
+				margin-right: 20%;                           /*23.9em;*/
+				display: inline-block;
+				margin-top: 5px;
+				height: 50px;
+				width: 160px;
+				background-image: url(anim2.gif);
+				background-size: 200px 330px;
+				background-repeat: no-repeat;
+				border-radius: 86px;
+				text-align: center;
+				color: white;
+				text-shadow: 0    0   1px #80bfff,
+       						 1px -1px 2px #4da6ff,
+        					-1px -1px 2px #1a8cff,
+      						 1px -1px 2px #0073e6,
+        					-1px -1px 1px #004d99,
+       						 0   -2px 1px #00264d,
+							 1px -2px 1px #000d1a;
+			}
+			.fin{
+				position : absolute;
+				bottom : 0;
+				margin-left : 50%;
+				color : red;
+				text-align : center;
+				text-shadow: 0    0   2px #fefcc9,
+        		1px -1px 1px #feec85,
+       			 -2px -2px 2px #ffae34,
+       			 2px -3px 3px #ec760c,
+       			 -2px -4px 4px #cd4606,
+       			 0   -5px 5px #973716,
+        		1px -6px 6px #451b0e;
+			}
+			#resetall {
+				position : absolute;
+				bottom : 10%;
+				width: 9%;
+				margin-left : 33.5%;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<header>
+			<h2>Règle du jeu</h2><br>
+			<p id="rdj">Bonjour,<br><br> nous allons jouer au jeu du Nombre est bon !<br><br>Le principe consiste à trouver le nombre<br><br> selectionné au hasard par le computer<br><br> en seulement 10 essais.
+			Sur chaque tentative,<br><br> si le nombre recherché n'est pas trouvé,<br><br> le computer renvoi comme seule indication :<br><br>"Plus haut" ou "Plus bas".</p>
+		</header>
+		<h1>Le nombre est bon</h1>
+		<div id="main">
+		<input id="valeur" type="number" max="100"><br><br>
+		<button type="submit" id="lanceF">Valider</button><button type="button" id="resetg">Reset</button><br><br><br>
+		<span id="result1"></span><br><br>
+		<span id="result2"></span><br><br>
+		<span id="result3">&#128543;</span>
+		</div><br><br>
+		<div id="vous"><br>?</div>
+		<div id="lui"><br>?</div>
+		<button id="resetall">Je recommence tout</button>
+		<footer>
+			<p class="fin">Copyright 2017 - beWeb - Tous droits réservés © propulsé par Fondespierre</p>
+		</footer>
+		<script>
+		let valeur = document.getElementById("valeur");
+		
+		let valeurR = Math.floor(Math.random()*100);
+		let count = 1;
+		let compteurV = 0;
+		let compteurL = 0;
+			document.getElementById("lanceF").addEventListener("click",function(){
+				let valeurU = Number(valeur.value);                                                          //Number(valeur.value);  autre manière de recuperer la valeur d'une entrée.
+					if(valeurU == valeurR){
+							document.getElementById("result1").innerHTML = "Bravo, vous avez trouvé le bon nombre! " + " &#128516;";
+							document.getElementById("lanceF").disabled = true;
+							document.getElementById("result3").innerHTML = "Le plus dur n'est pas d'arriver au sommet...c'est d'y RESTER !";
+							document.getElementById("result2").innerHTML = "";
+							compteurV += 1;
+								if(compteurV == 0 || compteurV == 1){
+									document.getElementById("vous").innerHTML = "<br>Vous avez : " + compteurV + " point";
+									}
+								else {
+									document.getElementById("vous").innerHTML = "<br>Vous avez : " + compteurV + " points";
+									}
+						}
+							else if(valeurU < valeurR) {
+								document.getElementById("result1").innerHTML = valeurU + " &emsp; " + "  &#128077";
+								document.getElementById("result2").innerHTML = ((11-count)-1) + " tentative(s)"; 
+							}
+							 else {
+								document.getElementById("result1").innerHTML = valeurU + " &emsp; " + "  &#128078";
+								document.getElementById("result2").innerHTML = ((11-count)-1) + " tentative(s)";
+							 }
+						 if ( count === 10){
+							document.getElementById("result2").innerHTML = "Vous avez perdu !";
+							document.getElementById("lanceF").disabled = true;
+							document.getElementById("result3").innerHTML = "Se VENGER n'est pas une option !" + " &#128545;";
+							document.getElementById("result2").innerHTML = "";
+							compteurL += 1;
+								if(compteurL == 0 || compteurL == 1){
+									document.getElementById("lui").innerHTML = "<br>Computer : " + compteurL + " point";
+								}
+								else {
+									document.getElementById("lui").innerHTML = "<br>Computer : " + compteurL + " points";
+								}
+						}
+						count++;
+						valeur.value = "";
+						valeur.focus();
+					});
+
+			document.getElementById("resetg").addEventListener("click",function(reset){
+					document.getElementById("result1").innerHTML="";
+					document.getElementById("result2").innerHTML="";
+					document.getElementById("result3").innerHTML="&#128543;";
+					document.getElementById("lanceF").disabled = false;
+					count = 1;
+					valeurR = Math.floor(Math.random()*100);
+			});
+
+			document.getElementById("resetall").addEventListener("click",function(restart){
+					document.getElementById("lui").innerHTML ="<br>0";
+					document.getElementById("vous").innerHTML ="<br>0";
+					document.getElementById("lanceF").disabled = false;
+					document.getElementById("result3").innerHTML="&#128543;";
+					document.getElementById("result1").innerHTML="";
+					document.getElementById("result2").innerHTML="";
+					valeurR = Math.floor(Math.random()*100);
+					count = 1;
+			});
+					
+							
+			
+						
+			
+		</script>
+	</body>
+</html>

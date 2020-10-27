@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exos 2 semaines</title>
+    <style>
+        *{
+            text-align: center;
+            scroll-behavior: smooth;
+            margin:0;
+            padding:0;
+            
+        }
+        body {
+            background-image: url(fd3.jpg) ;
+            /*background-size: cover;*/ 
+        }
+        header {
+            position: relative;
+            width: 100%;
+            height: 10%;
+            background-image:url(fd1.gif);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        li{
+            display: inline;
+            font-size: 24px;
+            margin-left: 2%;
+        }
+        ul {
+            height: 35px;
+        }
+        li a {
+            text-decoration: none;
+            color: black;  
+            text-shadow:0 0.5px 0.5px #e6e6e6, 0 0.5px 0.5px #e6e6e6;
+            font-weight: bold; 
+        }
+        li a:hover{
+            color:white;
+            text-shadow:0 0.5px 0.5px #0039e6, 0 0.5px 0.5px #0039e6;
+        }
+        h1 {
+            padding-top: 1%;
+            padding-bottom: 1%;
+            color: white;
+            text-shadow:0 0.5px 0.5px #0039e6, 0 0.5px 0.5px #0039e6;  
+        }
+       h2 {
+            margin-top: 3%;
+       }
+        h2 a {
+            text-decoration: none;
+            font-weight : bold;
+            color: white;
+            font-size: 36px;
+            text-shadow:0 1px 1px #0039e6, 0 1px 1px #0039e6;
+        }
+        nav{
+            background-image: url(fd1.jpg);
+            /*background-size: cover;*/
+            margin-top: 0;
+        }
+        p {
+            font-size: 24px;
+            text-shadow:0 0.5px 0.5px #595959, 0 0.5px 0.5px #595959;
+        }
+    </style>
+</head>
+<body>
+    <header>
+<h1 id="retour" align="center">Exos pour les 2 prochaines semaines</h1><br>
+    </header> 
+<nav>
+    <ul>
+        <li><a href="#jour1">Jour 1</a></li>
+        <li><a href="#jour2">Jour 2</a></li>
+        <li><a href="#jour3">Jour 3</a></li>
+        <li><a href="#jour4">Jour 4</a></li>
+        <li><a href="#jour5">Jour 5</a></li>
+        <li><a href="#jour6">Jour 6</a></li>
+        <li><a href="#jour7">Jour 7</a></li>
+        <li><a href="#jour8">Jour 8</a></li>
+        <li><a href="#jour9">Jour 9</a></li>
+        <li><a href="#jour10">Jour 10</a></li>
+        <li><a href="#jour11">Jour 11</a></li>
+        <li><a href="#jour12">Jour 12</a></li>
+        <li><a href="#jour13">Jour 13</a></li>
+        <li><a href="#jour14">Jour 14</a></li>
+        <li><a href="#jour15">Jour 15</a></li>
+    </ul>
+</nav>
+<h2 id="jour1"><a href="#retour">Jour 1</a></h2>
+<h2>écrire une fonction JS pour supprimmer tous les caractères qui reviennent plus d'une fois dans une chaine (chiffre ou lettre )</h2><br>
+<p>Entrer votre chaine de caractères : </p><br><input id="chaine"><button id="valider">Valider</button><button id="reset">Effacer</button><br>
+<p id="result"></p><br><br>
+<script>
+    document.getElementById("valider").addEventListener("click", function(){
+                    let montabTemp01 = document.getElementById("chaine").value;
+                    montabTemp01 = montabTemp01.split("");
+                    let montab01 = [];
+                    for (let i=0; i<montabTemp01.length; i++){
+                        if (montab01.indexOf(montabTemp01[i]) === -1){
+                            montab01.push(montabTemp01[i]);
+                        }
+                    }
+                    document.getElementById("result").innerHTML="Notre nouvelle chaine vaut : " + montab01.join("");
+    })
+    document.getElementById("reset").addEventListener("click",function(){
+        document.getElementById("result").innerHTML="";
+        document.getElementById("chaine").value="";
+    })
+//---------------------- Solution intermédiaire -------------------------------//
+    /*let doublons = ["1", "2", "3", "4", "2", "4", "5", "1"];
+    let sans_doublons = Array.from(new Set(doublons));*/
+
+</script>
+<h2>faire une fonction pour convertir une chaine CSV  par ex : 'p,q\nr,s' en tableau 2D [["p", "q"], ["r", "s"]]</h2><br>
+<p>Entrez une chaine CSV : </p><br><input id="chaineCSV"><button id="valider1">Valider</button><button id="reset1">Effacer</button><br>
+<p id="result1"></p>
+<script>
+    document.getElementById("valider1").addEventListener("click",function(){
+        let chaine = document.getElementById("chaineCSV").value;
+        chaine = chaine.split("\\n");
+        let montab1 = [];
+        let x ="";
+        for (let i=0;i<chaine.length;i++){
+             x = chaine[i].split(",");
+             montab1.push(x);
+        }
+         document.getElementById("result1").innerHTML = JSON.stringify(montab1);
+    })
+
+    document.getElementById("reset1").addEventListener("click", function(){
+        document.getElementById("result1").innerHTML="";
+        document.getElementById("chaineCSV").value="";
+    })
+</script>
+<h2 id="jour2"><a href="#retour">Jour 2</a></h2>
+<h2>écrire une fonction JS qui échange deux à deux les chiffres d'un nombre dont la taille est multiple de 2  (ex 52,5498,658798 mais pas 1,654,98765)</h2><br>
+   <p>Entrez une chaine de nombre paire : </p><br><input type="number" id="chaine2"><button id="valider2">Valider</button><button id="reset2">Effacer</button><br>
+   <p id="result2"></p><br><br>
+<script>
+    document.getElementById("valider2").addEventListener("click",function(){
+        let chaine = document.getElementById("chaine2").value;
+        let chaine1 = [];
+        if(chaine.length%2 !== 0){
+            document.getElementById("result2").innerHTML="Veuillez entrer une chaine numérique paire !"
+        } else if (chaine.length%2 == 0) {
+        chaine = chaine.match(/..?/g);
+        for (let i=0;i<chaine.length;i++){
+            chaine1 += chaine[i].split("").reverse().join("");
+        }
+        document.getElementById("result2").innerHTML="Le résultat de la nouvelle chaine numérique est : <b>" + chaine1; + "</b>";
+        }
+    });
+
+    document.getElementById("reset2").addEventListener("click",function(){
+        document.getElementById("chaine2").value="";
+        document.getElementById("result2").innerHTML="";
+    });
+</script>
+<h2>ecrire une fonction JS qui permet de retourner le Nieme argument d'une fonction quelconque (la position de l'argument recherché est passé en paramètre)</h2><br>
+<h2 id="jour3"><a href="#retour">Jour 3</a></h2>
+<h2>faire une fonction JS pour additionner tous les chiffres présents dans une chaine mixte </h2><br>
+<p>Entrez votre chaine mixte : </p><br><input id="chaineM"><button id="valider3">Valider</button><button id="reset3">Effacer</button><br>
+<p id="result3"></p><br><br>
+<script>
+    document.getElementById("valider3").addEventListener("click",function(){
+        let chaine = document.getElementById("chaineM").value;
+        chaine = chaine.split("");                                //chaine = chaine.match(/\d+/g).join(""); ---> récupère tous les chiffres d'une chaine
+        let result = 0;                                           // chaine = result.split("");
+                                                                  // for(let i=0;i<chaine.length;i++){
+        for (let i=0;i<chaine.length;i++){                        //    result+=chaine[i];
+            if(isNaN (chaine[i])){                                //     }
+                continue;
+                } else {
+                    result+=Number(chaine[i]);
+                    }
+             }
+        document.getElementById("result3").innerHTML="La somme de tous les chiffres est : " + result;
+    })
+    document.getElementById("reset3").addEventListener("click",function(){
+        document.getElementById("chaineM").value="";
+        document.getElementById("result3").innerHTML="";
+    })
+</script>
+<h2>trouver à l'aide d'une fonction JS tous les facteurs premiers distincts d'un entier donné </h2><br>
+<h2 id="jour4"><a href="#retour">Jour 4</a></h2>
+<h2>ecrire une fonction JS pour calculer la somme des cubes à partir de 1 jusqu'à un entier donné </h2><br>
+<p>Entrez un nombre entier :</p><br><input id="nbE"><button id="valider4">Valider</button><button id="reset4">Effacer</button><br>
+<p id="result4"></p><br><br>
+<script>
+    document.getElementById("valider4").addEventListener("click",function(){
+        let chaine = document.getElementById("nbE").value;
+        let result = 0;
+        for (let i=0; i<=chaine;i++){
+            result+=Math.pow([i],3);
+           
+        } 
+        document.getElementById("result4").innerHTML="La somme des cubes est : " + result;
+    })
+    document.getElementById("reset4").addEventListener("click",function(){
+        document.getElementById("nbE").value="";
+        document.getElementById("result4").innerHTML="";
+
+    })
+</script>
+<h2 id="jour5"><a href="#retour">Jour 5</a></h2>
+<h2>ecrire une fonction JS pour transformer une URL type  "protocole://domaine.extension" en tableau</h2><br>
+<p>Entrez une URL : </p><br><input id="url"><button id="valider5">Valider</button><button id="reset5">Effacer</button><br>
+<p id="result5"></p><br><br>
+<script>
+    document.getElementById("valider5").addEventListener("click",function(){
+        let my_url = document.getElementById("url").value;
+        let my_tab = my_url.split(/[\s,/.:]+/);
+        document.getElementById("result5").innerHTML="L'adresse URL est maintenant contenu dans un tableau : " + JSON.stringify(my_tab);
+         /* var expression = /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)?/gi;
+        var regex = new RegExp(expression);
+        var t = "google.fr";            //------- Méthode pour recupérer l'adresse url en une seule entité.----------//
+        console.log(t.match(regex));*/
+    });
+    document.getElementById("reset5").addEventListener("click", function(){
+        document.getElementById("url").value="";
+        document.getElementById("result5").innerHTML="";
+    });
+</script>
+<h2 id="jour6"><a href="#retour">Jour 6</a></h2>
+<h2>écrire une fonction JS pour trouver l'entier maximum qui permet la somme 1+2+...n </h2><br>
+<p>Entrez un entier : </p><br><input id="num6"><button id="valider6">Valider</button><button id="reset6">Effacer</button><br>
+<p id="result6"></p><br><br>
+<script>
+    document.getElementById("valider6").addEventListener("click",function(){
+        let num = document.getElementById("num6").value;
+        let count = 0;
+        for(let i = 0; i < num; i++){
+            count += i;
+           if(count <= num){
+               document.getElementById("result6").innerHTML = "Le resultat est : " + i;
+           }
+        }
+     });
+     document.getElementById("reset6").addEventListener("click",function(){
+         document.getElementById("result6").innerHTML="";
+         document.getElementById("num6").value="";
+     });
+</script>
+<h2 id="jour7"><a href="#retour">Jour 7</a></h2>
+<h2>écrire une fonction JS pour trouver le nombre d'elements communs à deux tableaux d'entiers de meme taille </h2><br>
+<p>Entrez vos 2 chaines d'entiers</p><br><input id="chain_1"><input id="chain_2"><button id="valider7">Valider</button><button id="reset7">Effacer</button><br>
+<p id="result7"></p>
+<p id="result7a"></p><br><br>
+<script>
+    document.getElementById("valider7").addEventListener("click",function(){
+        chain_1 = document.getElementById("chain_1").value;
+        chain_2 = document.getElementById("chain_2").value;
+        chain_1 = Array.from(new Set(chain_1)); // Retire les doublons !
+        chain_2 = Array.from(new Set(chain_2));
+        let chain_id = [];
+        let count = 0;
+        for(let i=0;i<chain_1.length;i++){
+            for(let j=0;j<chain_2.length;j++){
+                if(chain_1[i]==chain_2[j]){
+                    count+=1;
+                    chain_id.push(chain_1[i]);
+                }
+            }
+        }
+         document.getElementById("result7a").innerHTML= "[" + chain_id + "]";
+        // document.getElementById("result7a").innerHTML=chain_1.filter(value => -1 !== chain_2.indexOf(value));
+        document.getElementById("result7").innerHTML="Il y a <b>" + count + "</b> éléments identiques dans ces 2 chaines : ";
+    })
+    document.getElementById("reset7").addEventListener("click",function(){
+        document.getElementById("result7").innerHTML="";
+        document.getElementById("result7a").innerHTML="";
+        document.getElementById("chain_1").value="";
+        document.getElementById("chain_2").value="";
+    })
+</script>
+<h2 id="jour8"><a href="#retour">Jour 8</a></h2>
+<h2>écrire une fonction JS pour remplacer par le caractère $ le premier chiffre dans une chaine type "ahe3hjf6hej"</h2><br>
+<p>Entrer une chaine mixte : </p><br><input id="chain_8"><button id="valider8">Valider</button><button id="reset8">Effacer</button><br>
+<p id="result8"></p><br><br>
+<script>
+    document.getElementById("valider8").addEventListener("click",function(){
+        let chain_M = document.getElementById("chain_8").value.split("");
+        for(let i=0;i<chain_M.length;i++){
+            if (isNaN(chain_M[i])){
+                continue;
+            } else {
+                chain_M[i]="<b>$</b>";
+                //console.log(chain_M);
+                break;
+            }
+        }
+        document.getElementById("result8").innerHTML="La nouvelle chaine vaut : " + chain_M.join("");
+    })
+    document.getElementById("reset8").addEventListener("click",function(){
+        document.getElementById("chain_8").value="";
+        document.getElementById("result8").innerHTML="";
+    })
+</script>
+<h2 id="jour9"><a href="#retour">Jour 9</a></h2>
+<h2>Écrire un programme qui permet le calcul d’un âge en fonction de la date de l’année de naissance saisie au clavier.</h2><br>
+<p>Entrez votre année de naissance </p><br><input id="annee"><button id="valider9">Valider</button><button id="reset9">Effacer</button><br>
+<p id="result9"></p><br><br>
+<script>
+    document.getElementById("valider9").addEventListener("click",function(){
+        let annee = document.getElementById("annee").value;
+        let now = new Date;
+        let anneeN = now.getFullYear();
+        let age = anneeN-annee;
+        document.getElementById("result9").innerHTML="Vous avez :<b>" + age + " </b>ans";
+    });
+    document.getElementById("reset9").addEventListener("click",function(){
+        document.getElementById("annee").value="";
+        document.getElementById("result9").innerHTML="";
+    });
+</script>
+<h2 id="jour10"><a href="#retour">Jour 10</a></h2>
+<h2>Créer un bouton exécutant une fonction permettant de soustraire deux nombres à partir de deux champs inputs. Afficher ensuite le résultat.</h2><br>
+<p>Entrez vos 2 nombres à soustraire :</p><br><input id="nbr1"><input id="nbr2"><button id="valider10">Valider</button><button id="reset10">Effacer</button><br>
+<p id="result10"></p><br><br>
+<script>
+    document.getElementById("valider10").addEventListener("click",function(){
+        let nbr1 = document.getElementById("nbr1").value;
+        let nbr2 = document.getElementById("nbr2").value;
+        let sous = nbr1 - nbr2;
+       /* if(nbr1 >= nbr2){
+            sous = nbr1 - nbr2;
+        } else {
+            sous = nbr2 - nbr1;
+        }*/
+        document.getElementById("result10").innerHTML="Le résultat de la soustraction est : <b>" + sous + "</b>";
+    });
+    document.getElementById("reset10").addEventListener("click",function(){
+        document.getElementById("nbr1").value="";
+        document.getElementById("nbr2").value="";
+        document.getElementById("result10").innerHTML="";
+    });
+</script>
+<h2 id="jour11"><a href="#retour">Jour 11</a></h2>
+<h2>Pari sportif: Créer une fonction vous permettant de calculer les bénéfices à partir d'un montant prédéfini par l'utlisateur et d'une cote dynamique générée aléatoirement.<br> Grossièrement, vous devez ajouter 1 champs input, 1 champ dynamique et 2 boutons (Calcul des bénéfices et génération aléatoire de la cote).<br> Faites aussi en sorte que tous vos nombres décimaux n'est pas plus de 2 chiffres après la virgule.</h2><br>
+<p>Entrez votre mise (en Euros): </p><br><input id="mise"><button id="generate">Générer une côte</button><button id="valider11">Valider</button><button id="reset11">Remettre à zéro</button><br>
+<p id="resultC"></p>
+<p id="result11"></p><br><br>
+<script>
+    let cote = 0;
+    document.getElementById("generate").addEventListener("click",function(){
+        cote = parseFloat(Math.random()*100).toFixed(2);
+        document.getElementById("resultC").innerHTML= "Votre cote est : <b>" + cote + "</b>";
+    })
+    document.getElementById("valider11").addEventListener("click",function(){
+        let mise = document.getElementById("mise").value;
+        let benef = mise*cote;
+        document.getElementById("result11").innerHTML= "Vos bénéfices seront de : <b>" + benef + "</b> Euros";
+    });
+    document.getElementById("reset11").addEventListener("click",function(){
+        document.getElementById("mise").value="";
+        document.getElementById("resultC").innerHTML="";
+        document.getElementById("result11").innerHTML="";
+    });
+</script>
+<h2 id="jour12"><a href="#retour">Jour 12</a></h2>
+<h2>ecrire un programme JS pour inverser l'ordre des bits dans un entier donné :
+    56 -> 111000 apres inversion  7 -> 111
+    234 -> 11101010 apres inversion 87 -> 1010111</h2><br>
+<p>Entrez votre entier : </p><br><input id="entier12"><button id="valider12">Valider</button><button id="reset12">Effacer</button><br>
+<p id="result12"></p><br><br>
+<script>
+    document.getElementById("valider12").addEventListener("click",function(){
+        let entier = document.getElementById("entier12").value;
+        let binaire = (entier-0).toString(2);
+        let conversion = binaire.split("").reverse();
+        conversion = conversion.join("");
+        let decimal = parseInt(conversion,2);
+        let binaire1 = (decimal-0).toString(2);
+        document.getElementById("result12").innerHTML="Nos conversions : <b>" + binaire + " ==> " + conversion + " ==> " + decimal + " ==> " + binaire1;
+     });
+    document.getElementById("reset12").addEventListener("click",function(){
+        document.getElementById("entier12").value="";
+        document.getElementById("result12").innerHTML="";
+    });
+</script>
+<h2 id="jour13"><a href="#retour">Jour 13</a></h2>
+<h2>ecrire une fonction JS pour vérifier qu'un entier donné > 100  comporte bien des chiffres en ordre croissant : </h2><br>
+<p>Entrez un entier > à 100 : </p><br><input id="entier13"><button id="valider13">Valider</button><button id="reset13">Effacer</button><br>
+<p id="result13"></p><br><br>
+<script>
+    document.getElementById("valider13").addEventListener("click",function(){
+        let entier = document.getElementById("entier13").value;
+        entier = entier.split("");
+        let test ="";
+        for (let i=0;i<entier.length;i++){
+             if(entier[i]>entier[i+1]){
+                    test = false;
+                    break;
+                } else {
+                    test = true;
+                }
+        }
+        if(test === true){
+            document.getElementById("result13").innerHTML="L'entier saisi<b> " + entier.join("") + "</b> comporte des chiffres en ordre croissant !";
+        } else {
+            document.getElementById("result13").innerHTML="L'entier saisi<b> " + entier.join("") + "</b> ne comporte pas de chiffres en ordre croissant !";
+        }
+    });
+    document.getElementById("reset13").addEventListener("click",function(){
+        document.getElementById("entier13").value="";
+        document.getElementById("result13").innerHTML="";
+    });
+</script>
+<h2 id="jour14"><a href="#retour">Jour 14</a></h2>
+<h2>faire une fonction JS pour remplacer un hash '#" dans une chaine par un chiffre qui produit un entier divisible par 3 (ex : "2#0" => ['210','240','270'])</h2><br>
+<p>Entrez la chaine comme indiquée dans l'énoncé (x#x) : </p><br><input id="chain_#"><button id="valider14">Valider</button><button id="reset14">Effacer</button><br>
+<p id="result14"></p><br><br>
+<script>
+     document.getElementById("valider14").addEventListener("click",function(){
+        let entier = document.getElementById("chain_#").value;
+        entier = entier.split("");
+        let result = 0;
+        for (let i=0;i<entier.length;i++){
+            if(entier[i]=="#"){
+                entier[i]= parseInt(Math.random()*10).toFixed(0);
+                //entier = entier.join("");
+               // console.log(entier);
+            }
+        }
+        for (let j=0;j<entier.length;j++){
+                if(entier.join("")%3!==0){
+                   //console.log(entier);
+                   entier[1]= parseInt(Math.random()*10).toFixed(0);
+                } else if(entier.join("")%3===0){
+                    document.getElementById("result14").innerHTML="Le chiffre permettant d'obtenir un entier divisible par 3 est : <b>" + entier[1] + "</b>";
+                    console.log(entier);
+                    break;
+                }
+            } 
+        });
+    document.getElementById("reset14").addEventListener("click",function(){
+        document.getElementById("chain_#").value="";
+        document.getElementById("result14").innerHTML="";
+    });
+</script>
+<h2 id="jour15"><a href="#retour">Jour 15</a></h2>
+<h2>générer un code couleur hexadecimal aléatoire </h2><br>
+<p>Appuyez sur le bouton pour générer un code couleur hexadécimal : </p><br><button id="generateC">Générer</button><button id="reset15">Effacer</button><br>
+<p id="result15"></p><br><br>
+<script>
+    document.getElementById("generateC").addEventListener("click",function(){
+        let cchr = (Math.random()*0xFFFFFF).toString(16);
+        document.getElementById("result15").innerHTML="Un exemple de code couleur hexadécimal :<b> " + '#' + (Math.random().toString(16) + "000000").substring(2,8) + "</b>";
+     });
+    document.getElementById("reset15").addEventListener("click",function(){
+        document.getElementById("result15").innerHTML="";
+    });
+</script>
+</body>
+</html>                                         

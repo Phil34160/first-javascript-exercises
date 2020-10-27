@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen">
+    <script type="text/javascript" src="script2.js" async></script>
+    <title>Document</title>
+</head>
+<body>
+  <header class="head">
+    <h1 align="center"><a href="index.html">Site Démo</a></h1>
+  </header>   
+    <nav id="menu">
+        <ul>
+          <li><a href="JavaScript1.html">Générateur de table</a></li>
+          <li><a href="JavaScript2.html">Calcul du métabolisme</a></li>
+          <li><a href="JavaScript3.html">Générateur de langue Alien</a></li>
+          <li><a href="JavaScript4.html">Chiffres vers lettres</a></li>
+          <li><a href="JavaScript5.html">Panier sommaire</a></li>
+          <li><a href="#">Exos JavaScript</a>
+            <ul>
+              <li><a href="13 fonctions/13 fonctions.html" target="_blank">13 fonctions</a></li>
+              <li><a href="exo 2 semaines/Exo 2 semaines.html" target="_blank">30 fonctions</a></li>
+              <li><a href="Shifumi/Shifumi officiel.html" target="_blank">Shifumi</a></li>
+              <li><a href="Le nombre est bon/Le nombre est bon.html" target="_blank">Le nombre est bon</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav><br><br><br><br><br>
+      <h2>Calcul du métabolisme avancé</h2><br><br>
+      <p>calcul du metabolisme : on entre son sexe, son age, sa taille, son poids et son activité (sedentaire ou sportif) et l'interface calcule le quotient optimal journalier de calories</p><br>
+      <p>Entrez les informatiosn suivantes :</p><br>
+      <div id="meta">
+      <p>Votre sexe :</p><br>
+      <select id="sexe"><option value="M">Masculin</option>
+                        <option value="F">Féminin</option>
+      </select>
+      <br><br><p>Votre age :</p><br><input type="number" id="age"><br><br>
+      <p>Votre taille (en cm) :</p><br><input id="taille"><br><br>
+      <p>Votre poids (en kg) :</p><br><input type="number" id="poids"><br><br>
+      <p>Votre profil :</p><br>
+      <select id="profil"><option value="1.2">Sédentaire</option>
+                          <option value="1.375">Légèrement actif</option>
+                          <option value="1.55">Actif</option>
+                          <option value="1.725">Très actif</option>
+                          <option value="1.9">Hyper actif</option>
+      </select>
+      <br><br><button id="validerM">Valider</button>&nbsp;<button id="resetM">Effacer</button><br><br>
+      <p id="resultM"></p>
+    </div>
+    <footer>
+      <p class="fin" align="center">Copyright 2017 - beWeb - Tous droits réservés © propulsé par Fondespierre</p>
+    </footer>
+</body>
+</html>

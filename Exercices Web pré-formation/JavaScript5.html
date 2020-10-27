@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" type="text/css" media="screen">
+    <script type="text/javascript" src="script5.js" async></script>
+    <title>Document</title>
+</head>
+<body>
+  <header class="head">
+    <h1 align="center"><a href="index.html">Site Démo</a></h1>
+  </header>   
+    <nav id="menu">
+        <ul>
+          <li><a href="JavaScript1.html">Générateur de table</a></li>
+          <li><a href="JavaScript2.html">Calcul du métabolisme</a></li>
+          <li><a href="JavaScript3.html">Générateur de langue Alien</a></li>
+          <li><a href="JavaScript4.html">Chiffres vers lettres</a></li>
+          <li><a href="JavaScript5.html">Panier sommaire</a></li>
+          <li><a href="#">Exos JavaScript</a>
+            <ul>
+              <li><a href="13 fonctions/13 fonctions.html" target="_blank">13 fonctions</a></li>
+              <li><a href="exo 2 semaines/Exo 2 semaines.html" target="_blank">30 fonctions</a></li>
+              <li><a href="Shifumi/Shifumi officiel.html" target="_blank">Shifumi</a></li>
+              <li><a href="Le nombre est bon/Le nombre est bon.html" target="_blank">Le nombre est bon</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav><br><br><br><br><br>
+      <h2>Panier sommaire</h2><br><br>
+      <p>on entre le nombre voulu de chaque article (en tableau : article/prix) et le paiement en monnaie,  et l'interface calcule  la somme totale et le rendu de monnaie</p><br>
+    <legend>Tableau d'articles</legend><br>
+    <table>
+        <tr class="table">
+        <th class="table" style="width:450px;"><strong>Designation</strong></th>
+        <td style="width:90px;"><strong>Quantité</strong></td>
+        <td style="width:150px;"><strong>Prix (en Euros)</strong></td>
+        </tr>
+        <tr>
+            <td><em>Windows 10 Home</em></td>
+            <td><input min="0" type="number" id="qte1" value="0"></td>
+            <td>145.00 </td>
+        </tr>
+        <tr>
+            <td><em>Windows 10 Pro</em></td>
+            <td><input min="0" type="number" id="qte2" value="0"></td>
+            <td>259.00 </td>
+        </tr>
+        <tr>
+            <td><em>Ubuntu</em></td>
+            <td><input min="0" type="number" id="qte3" value="0"></td>
+            <td>Gratuit</td>
+        </tr>
+        <tr>
+            <td><em>Windows 10 Pro for Workstations</em></td>
+            <td><input min="0" type="number" id="qte4" value="0"></td>
+            <td>439.00 </td>
+        </tr>
+        <tr>
+            <td><em>Elementary</em></td>
+            <td><input min="0" type="number" id="qte5" value="0"></td>
+            <td>Gratuit</td>
+        </tr>
+       
+    </table><br>
+    <p>Voulez-vous payer en liquide :</p><br>
+    <select id="liquide">
+        <option value ="1">Oui</option>
+        <option value ="2">Non</option>
+    </select><br><br>
+    <p>Entrez votre montant en liquide :</p><br>
+    <input id="montant"><br><br>
+    <button id="valider">Valider</button>&nbsp;<button id="reset">Effacer</button><br><br>
+    <p id="rappel"></p><br>
+    <p id="result_montant"></p><br>
+    <p id="result_rendu"></p>
+    <footer>
+      <p class="fin" align="center">Copyright 2017 - beWeb - Tous droits réservés © propulsé par Fondespierre</p>
+    </footer>
+</body>
+</html>

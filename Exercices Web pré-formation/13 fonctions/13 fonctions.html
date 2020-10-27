@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Exercices</title>
+     <style>
+      header {
+        text-align: center;
+        background:radial-gradient(closest-side, #344b44, #49695f, #699687);
+        color: white;
+        padding-bottom: 25px;
+        height: 4.5rem;
+      }      
+	  h1 {
+        font-family: 'Josefin Sans', sans-serif;
+        margin-top: 0; 
+        padding-top: 30px;
+        font-style: italic;
+        text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+        /*text-shadow:  0    0   2px #202c28,
+        1px -1px 3px #405951,
+        -2px -2px 4px #56766b,
+        2px -4px 5px #6b9486,
+        -2px -6px 6px #9ba3a0,
+        0   -8px 7px #a6bfb7,
+        1px -9px 8px #c4d4cf; */              
+      }      
+	  nav {
+        text-align: center;
+        background: radial-gradient(#7a9f92,black);
+        box-shadow: 0px 3px 1px -1px rgba(0, 0, 0, 0.5);
+        font-size: 1.1em;
+        padding: 15px;
+      } 
+      .color{
+          color: white;
+      }     
+	  ul {
+        padding: 0;
+        display: inline;
+      }      
+	  li {
+        list-style-type: none;
+        display: inline;
+        margin: 10px;
+      }     
+	  li:hover {
+        font-weight: bold;
+      }     
+	  a {
+        text-decoration: none;
+        color: black;
+      }     
+	  body,html {
+        text-align: center;
+        background: #e1eae7;
+        margin: 0;
+        scroll-behavior: smooth;
+      }     
+	  button {
+        display: inline-block;
+        vertical-align: middle;
+        color : black;     
+        border-radius : 9px;
+        background: radial-gradient(#e1eae7#7a9f92);
+        height: 1.9rem;
+        margin: 0.3%;
+        }      
+		button:hover {
+        background-color: #e1eae7;
+        box-shadow :0px 4px 5px #4b685e, 0px 4px 5px #4b685e;     
+        border-radius : 9px;   
+        font-weight: bold;   
+      }      
+      .boutonR {
+        margin-left: 10px;
+      }      
+	  h2 {
+        font-family: 'Open Sans', sans-serif;
+        font-size: 1.5em;
+        width: 400px;
+        margin: auto;
+        text-shadow: 0 1px 0 #ccc, 
+               0 2px 0 #c9c9c9,
+               0 3px 0 #bbb,
+               0 4px 0 #b9b9b9,
+               0 5px 0 #aaa,
+               0 6px 1px rgba(0,0,0,.1),
+               0 0 5px rgba(0,0,0,.1),
+               0 1px 3px rgba(0,0,0,.3),
+               0 3px 5px rgba(0,0,0,.2),
+               0 5px 10px rgba(0,0,0,.25),
+               0 10px 10px rgba(0,0,0,.2),
+               0 20px 20px rgba(0,0,0,.15);
+      }     
+	  .pep{
+        margin-top: 25px;
+      }     
+	  p {
+        font-family: 'Roboto', sans-serif;
+      }
+      input {
+          display: inline-block;
+          vertical-align: middle;
+          margin-top: 0.1%;
+          height: 1.4rem;
+          background: radial-gradient(closest-side, #2b3b35, #4b685e, #7a9f92);
+          margin: 0.3rem;
+          color: white;
+          font-weight: bold;
+          font-size: 16px;
+          border-radius: 6px;
+          text-align: center;
+          font-style: italic;
+      }
+      footer {
+        position: fixed;
+        background:radial-gradient(closest-side, #344b44, #49695f, #699687);
+        height: 2.3rem;
+        width: 100%;
+        margin-bottom: auto;
+        bottom: 0;
+      }
+      .fin {
+        position:relative;
+        bottom: -0.6rem;
+        margin: auto;
+        text-align: center;
+        color:white;
+        text-shadow: 0 1px 0 #ccc;
+      }
+      .coef {
+        width: 5rem;
+      }
+      .coord1 {
+        width: 6%;
+        margin: 1.5%;
+      }
+      div[id^="exo"]{
+        display: none;
+        -moz-transition: none;
+	      -webkit-transition: none;
+	      transition: none;
+      }
+      #resultP {
+        margin-left: 35.5%;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- TITRE DE LA PAGE -->
+    <header id="retour">
+      <h1 onmouseover="this.innerHTML='Fonctions et Boucles';" onmouseout="this.innerHTML='EXERCICES BeWeb';">EXERCICES BeWeb</h1>
+    </header>
+    <!-- MENU DE LA PAGE -->
+    <nav>
+      <ul>
+        <li><a href="#" onclick="toggle('exo1')" class="color">Exercice 1</a></li>
+        <li><a href="#" onclick="toggle('exo2')" class="color">Exercice 2</a></li>
+        <li><a href="#" onclick="toggle('exo3')" class="color">Exercice 3</a></li>
+        <li><a href="#" onclick="toggle('exo4')" class="color">Exercice 4</a></li>
+        <li><a href="#" onclick="toggle('exo5')" class="color">Exercice 5</a></li>
+        <li><a href="#" onclick="toggle('exo6')" class="color">Exercice 6</a></li>
+        <li><a href="#" onclick="toggle('exo7')" class="color">Exercice 7</a></li>
+        <li><a href="#" onclick="toggle('exo8')" class="color">Exercice 8</a></li>
+        <li><a href="#" onclick="toggle('exo9')" class="color">Exercice 9</a></li>
+        <li><a href="#" onclick="toggle('exo10')" class="color">Exercice 10</a></li>
+        <li><a href="#" onclick="toggle('exo11')" class="color">Exercice 11</a></li>
+        <li><a href="#" onclick="toggle('exo12')" class="color">Exercice 12</a></li>
+        <li><a href="#" onclick="toggle('exo13')" class="color">Exercice 13</a></li>
+      </ul>
+    </nav>
+    <!-- SECTION EXERCICES -->
+   <section>
+      <!-- EXERCICE 1 :
+      Trouver et afficher l'URL de la page chargée  -->
+      <div id="exo1" class="pep">
+        <h2><a href="#retour">EXERCICE 1 :</a></h2>
+          <p><b>Énoncé :</b> Trouver et afficher l'URL de la page chargée.</p>
+          <button id="click1">Récuperer URL</button>
+		  <button id="reset1">Reset</button>
+          <p id="resultat1"></p>
+        <script>
+	  	document.getElementById("click1").addEventListener("click",function(){
+      document.getElementById("resultat1").innerHTML = document.location.href;// document.write
+          });
+		  document.getElementById("reset1").addEventListener("click",function(){
+			document.getElementById("resultat1").innerHTML="";
+		  });
+        </script>
+      </div><br><br>
+      <!-- EXERCICE 2 :
+      Trouver l'extension d'un fichier (passé en chaine) -->
+      <div id="exo2">
+        <h2><a href="#retour">EXERCICE 2 :</a></h2>
+          <p><b>Énoncé :</b> Trouver l'extension d'un fichier.</p>
+          <input type="texte" id="input1"><br><br>
+          <button id="click3">Quel est l'extention de votre page ?</button>
+		  <button id="reset2">Reset</button>
+          <p id="resultat2"></p>
+        <script>
+		  document.getElementById("click3").addEventListener("click",function get_extension() {
+         /* let re = /(?:\.([^.]+))?$/;  //BESOIN D'EXPLICATION SUR EXPRESSION RATIONNELLE.        PREMIERE METHODE (REGEDIT)
+          let dl = document.getElementById("input1").value;
+          let ext = re.exec(dl)[0];*/
+
+          let dl = document.getElementById("input1").value.split(".");
+          let ext = dl[dl.length-1]; // dl.slice(-1)[0];
+          document.getElementById("resultat2").innerHTML = ("L'extention de cette page est : <b>.</b>" + "<b>" + ext + "</b>");
+          });
+		  document.getElementById("reset2").addEventListener("click",function(){
+			document.getElementById("resultat2").innerHTML="";
+			document.getElementById("input1").value="";
+		  });
+        </script>
+      </div><br><br>
+      <!-- EXERCICE 3 :
+      Calculer parmi 3 entiers lequel est le plus proche de 100 -->
+      <div id="exo3">
+        <h2><a href="#retour">EXERCICE 3 :</a></h2>
+          <p><b>Énoncé :</b> Calculer parmi 3 entiers lequel est le plus proche de 100.</p>
+          <input type="number"  id="inputA-0" required="required">
+          <input type="number"  id="inputA-1" required="required">
+          <input type="number"  id="inputA-2" required="required"><br><br>
+          <button id="numM">Lequel est le plus proche de 100 ?</button>
+		  <button id="reset3">Reset</button>
+          <p id="resultat3"></p>
+        <script>
+         document.getElementById("numM").addEventListener("click",function(){
+                let diff_actuelle = Infinity;
+                let valeur = 0;
+                for (let i=0; i<3; i++){
+                  let valeur_base = document.getElementById("inputA-" + i).value;
+                  let diff_valeur = Math.abs(valeur_base-100);
+                  if ( diff_valeur < diff_actuelle){
+                    diff_actuelle = diff_valeur;
+                    valeur = valeur_base;
+                  } else if (diff_valeur==diff_actuelle){
+                    valeur += " et " + valeur_base;
+                  }
+
+                  document.getElementById("resultat3").innerHTML= "L'entier le plus proche de 100 est : " + "<b>" + valeur + "</b>";
+                  }
+                });
+        //---------------------------------------- METHODE FONCTION CLOSEST (return la valeur la plus proche) -------------------------------------------------------//
+        
+        /*let montab3 = [];
+        document.getElementById("numM").addEventListener("click",function numMax () {
+			
+            for ( let i=0; i < 3; i++){
+                montab3.push(document.getElementById("inputA-" + i).value) //permet grace à la boucle (for) de rentrer toutes les valeurs de mes inputs dans un tableau.
+               
+                document.getElementById("resultat3").innerHTML =  closest(montab3,100); 
+                }});
+            
+            function closest(arr,val){
+            return Math.max.apply(null, arr.filter(function(v){return v <= val}))
+            }
+            //console.log(closest([1,22,121223],24)) // prints 22*/
+            
+        //------------------------------------ ANCIENNE METHODE ( CONDITIONS ) input <=100 -------------------------------------------------------------------------//
+            
+            /*if ((A == B) || (B == C ) || (A == C)) {
+              document.getElementById("resultat3").innerHTML = "Veuillez choisir 3 valeurs différentes !!";
+              return;
+            }
+            if ((A > B) && (A > C)) {
+              document.getElementById("resultat3").innerHTML ="Le chiffre " + A + " est plus proche de 100 que " + B + " et " + C + ".";
+            }
+            else if ((B > A) && (B > C)) {
+              document.getElementById("resultat3").innerHTML ="Le chiffre " + B + " est plus proche de 100 que " + A + " et " + C + ".";
+            }
+            else if ((C > A) && (C > B)) {
+              document.getElementById("resultat3").innerHTML ="Le chiffre " + C + " est plus proche de 100 que " + A + " et " + B + ".";
+            }
+          });*/
+			document.getElementById("reset3").addEventListener("click",function(){
+            document.getElementById("resultat3").innerHTML="";
+            for (let i = 0; i < 3; i++){                            //Grace à la boucle (for), je peux remettre tous mes inputs à zero en minimisant mon code
+            document.getElementsByTagName("input")[i + 1].value = "";
+
+            //--------------------------------- ANCIENNE METHODE ( input par input ) plutôt fastidieuse -------------------------------------------------------------//
+			/*document.getElementsByTagName("input")[1].value="";
+			document.getElementsByTagName("input")[2].value="";
+			document.getElementsByTagName("input")[3].value="";*/
+            }
+		  });
+        </script>
+      </div><br><br>
+      <!-- EXERCICE 4 :
+      Calculer la moyenne d'un élève pour 6 notes données -->
+      <div id="exo4">
+        <h2><a href="#retour">EXERCICE 4 :</a></h2>
+          <p><b>Énoncé :</b> Calculer la moyenne d'un élève pour 6 notes données & introduire une pondération par coefficients.</p>
+          <p>Note
+          <input type="number" step="0.5" min="0" max="20" id="note1" required="required">&nbsp; Coefficient &nbsp;
+          <input type="number" value="1" min="1" max="10" id="coef1" required="required" class="coef"></p>
+          <p>Note
+          <input type="number" step="0.5" min="0" max="20" id="note2" required="required">&nbsp; Coefficient &nbsp;
+          <input type="number" value="1" min="1" max="10" id="coef2" required="required" class="coef"></p>
+          <p>Note
+          <input type="number" step="0.5" min="0" max="20" id="note3" required="required">&nbsp; Coefficient &nbsp;
+          <input type="number" value="1" min="1" max="10" id="coef3" required="required" class="coef"></p>
+          <p>Note
+          <input type="number" step="0.5" min="0" max="20" id="note4" required="required">&nbsp; Coefficient &nbsp;
+          <input type="number" value="1" min="1" max="10" id="coef4" required="required" class="coef"></p>
+          <p>Note
+          <input type="number" step="0.5" min="0" max="20" id="note5" required="required">&nbsp; Coefficient &nbsp;
+          <input type="number" value="1" min="1" max="10" id="coef5" required="required" class="coef"></p>
+          <p>Note
+          <input type="number" step="0.5" min="0" max="20" id="note6" required="required">&nbsp; Coefficient &nbsp;
+          <input type="number" value="1" min="1" max="10" id="coef6" required="required" class="coef"></p><br>
+          <button id="calculM">Calculer la moyenne des 6 notes</button>
+          <button id="resetM">Effacer</button>
+          <p id="resultat4"></p>
+        <script>
+            //const somme = (a,b)=> a+b;   coeff.reduce(somme);  ----------- Solution alternative pour additionner les elements d'un tableau --------------------
+            let note = [];
+            let total_note = 0;
+            let total_coef = 0;
+            let coeff = [];
+            document.getElementById("calculM").addEventListener("click",function getNote(){
+                for (let i=1;i<7;i++){
+                     note.push(document.getElementById("note" + i).value);
+                     coeff.push(document.getElementById("coef" + i).value);
+                }
+                for (let j=0;j<coeff.length;j++){
+                   total_coef += Number(coeff[j]);
+                }
+                for (let k=0;k<note.length;k++){
+                    total_note += Number(note[k] * coeff[k]);
+                    document.getElementById("resultat4").innerHTML = "Moyenne générale : " + "<b>" + (total_note/total_coef).toFixed(2) + " /20</b>";
+                    document.getElementById("calculM").disabled = true;
+                }
+               });
+               document.getElementById("resetM").addEventListener("click",function (){
+                   for ( let i = 1; i < 7; i++){
+                       document.getElementById("note" + i).value = "";
+                       document.getElementById("coef" + i).value = "";
+                       document.getElementById("resultat4").innerHTML = "";
+                       document.getElementById("calculM").disabled = false;
+                   }
+               })
+
+/*---------------------------------------- ANCIENNE METHODE ---------------------------------------------------------------------            
+          function getNote() {
+            // VARIABLES NOTE
+            let Aa = parseFloat(document.getElementById("note1").value);
+            let Bb = parseFloat(document.getElementById("note2").value);
+            let Cc = parseFloat(document.getElementById("note3").value);
+            let Dd = parseFloat(document.getElementById("note4").value);
+            let Ee = parseFloat(document.getElementById("note5").value);
+            let Ff = parseFloat(document.getElementById("note6").value);
+            // VARIABLES COEFF
+            let Gg = parseInt(document.getElementById("coef1").value);
+            let Hh = parseInt(document.getElementById("coef2").value);
+            let Ii = parseInt(document.getElementById("coef3").value);
+            let Kk = parseInt(document.getElementById("coef4").value);
+            let Ll = parseInt(document.getElementById("coef5").value);
+            let Mm = parseInt(document.getElementById("coef6").value);
+            // ADDITION DU COEFFICIENT
+            let moyenneCoef = Gg + Hh + Ii + Kk + Ll + Mm;
+            // OPERATIONS DES MOYENNES
+            let moyenne = ((Aa * Gg )+ (Bb * Hh) + (Cc * Ii) + (Dd * Kk) + (Ee * Ll) + (Ff * Mm)) / moyenneCoef;
+            moyenne = moyenne.toFixed(2);
+            document.getElementById("resultat4").innerHTML ="La moyenne est de " + moyenne + "/20" ;
+          }*/
+        </script>
+      </div><br><br>
+      <!-- EXERCICE 5 :
+      Calculer toutes les combinaisons possibles -->
+      <div id="exo5">
+        <h2><a href="#retour">EXERCICE 5 :</a></h2>
+          <p><b>Énoncé :</b>Calculer toutes les combinaisons possibles à partir des éléments d'un tableau de caractères.</p>
+          <p>Ajoutez plusieurs fois un caractère :</p>
+        <input type="texte" id="valeur1" maxlength="1" required="required" style="width:50px">
+        <!-- BOUTON AJOUTER + AFFICHAGE SELECTION-->
+        <button id="ajout">Ajouter !</button><button id="resetComb">Reset</button>
+        <p id="resultat5"></p>
+        <!-- BOUTON MIXER + AFFICHAGE DU MIX -->
+        <button id="mixAll">Mixez !</button>
+		
+        <p id="resultatMix"></p><br><br>
+        <!-- SCRIPT -->
+        <script>
+		let dataB = []; 		
+          document.getElementById("ajout").addEventListener("click",function addsAll() {            // Fonction qui Permet de récupérer des valeurs à chaque click !
+			let dataA = document.getElementById("valeur1").value;
+            dataB.push(dataA);
+            document.getElementById("resultat5").innerHTML = dataB;
+			document.getElementById("valeur1").value = "";
+          });
+          document.getElementById("mixAll").addEventListener("click",function mixAll() { 
+           let result = [];              // Fonction qui ajoute toutes les valeurs à une valeur par le biais d'une boucle imbriquée (all combinations !)
+           let result2 = [];
+           let result3 = [];
+           for ( let i = 0; i < dataB.length; i ++){
+              result.push("[" + dataB[i] + "]");              
+               for ( let j = 0; j < dataB.length; j++){
+                  result2.push("[" + dataB[i] + " " + dataB[j] + "]");
+                 for ( let k = 0; k < dataB.length; k++){
+                    result3.push("[" + dataB[i] + " " + dataB[j] + " " + dataB[k] + "]"); 
+                }
+              }
+             }
+          document.getElementById("resultatMix").innerHTML = "possibilité : " + "<b>" + result.join(" ") + "</b><br>" +
+                                                             "Combinaisons possibles (2) : " + "<b>" + result2.join(" ") + "</b><br>" + 
+                                                             "Combinaisons possibles (3) : " + "<b>" + result3.join(" ") + "</b>";
+        });	
+		  document.getElementById("resetComb").addEventListener("click",function reset_data(){
+			dataB = [];
+			document.getElementById("resultat5").innerHTML = "";
+			document.getElementById("resultatMix").innerHTML = "";
+		  });
+        </script>
+      </div>
+	  <!-- EXERCICE 6 :
+	  Remplacer chaque caractère dans une chaine par son suivant dans l'alphabet --> 
+	  <div id="exo6">
+      <h2><a href="#retour">EXERCICE 6 :</a></h2>
+		 <p><b>Énoncé :</b>Remplacer chaque caractère dans une chaine par son suivant dans l'alphabet.</p>
+		 <p>Entrez un mot que nous allons modifier :</p>
+		 <input type="text" id="chaine" maxlength="50" required="required"><button type="button" onclick="alpha()">Valider</button><button type="button" onclick="resetA()">Reset</button>
+		 <p id="resultAlpha"></p><br>
+		 <!-- SCRIPT -->
+		 <script>
+				function alpha(){        //Fonction qui permet de remplacer un caractère par celui qui suit dans l'alphabet ( a==>b \\  String.fromCharCode(a.charCodeAt(i)+1))
+					let a = document.getElementById("chaine").value;
+					let result = ""
+						for(let i=0;i<a.length;i++){
+						let curr = String.fromCharCode(a.charCodeAt(i)+1);
+						result = result + curr;
+						}
+						document.getElementById("resultAlpha").innerHTML= "<b>" + result + "</b>";
+					}
+					
+				function resetA(){
+					document.getElementById("chaine").value = "";
+					document.getElementById("resultAlpha").innerHTML="";
+					}
+		 </script>
+	  </div>
+	   <!-- EXERCICE 7 -->
+      <!-- Calculer à partir d'un entier donné son equivalent : 
+        - a/ en minutes
+        - b/ en secondes -->
+        <div id="exo7">
+          <!-- MISE EN PAGE DE L'EXERCICE -->
+          <h2><a href="#retour">EXERCICE 7 :</a></h2>
+              <p><b>Énoncé :</b>Calculer à partir d'un entier donné son equivalent :<br>
+              - En minutes<br>
+              - En secondes</p>
+            <input type="number" id="input7" required="required" min="0">
+            <button onclick="inCon()" class="boutonR">Convertir Secondes en Minutes et vice-versa</button>
+			<button onclick="reset()" class="boutonR">Reset</button>
+			
+            <p id="result7"></p>
+            <p id="result7a"></p><br>          <!--  PARTIE SCRIPT -->
+            <script>
+            // FONCTION SECONDES EN MINUTES
+               function inCon() {
+                let a = document.getElementById("input7").value;
+                let result = (a / 60);
+                let result2 = (a * 60);
+                if (result <= 1 ){
+                document.getElementById("result7").innerHTML ="<b>" + a + "</b>" + " secondes vaut : " + "<b>" + result.toFixed(2) + "</b> minute";  
+                } else {
+                  document.getElementById("result7").innerHTML ="<b>" + a + "</b>" + " secondes vaut : " + "<b>" + result.toFixed(2) + "</b> minutes";
+                }
+                if ( result2 <= 1 ){
+                document.getElementById("result7a").innerHTML ="<b>" + a + "</b>" + " minutes vaut : " + "<b>" + result2 + "</b> seconde";  
+                }else {
+                  document.getElementById("result7a").innerHTML ="<b>" + a + "</b>" + " minutes vaut : " + "<b>" + result2 + "</b> secondes";
+                }
+              }
+            // FONCTION RESET
+              function reset() {
+				document.getElementById("input7").value = "";
+                document.getElementById("result7a").innerHTML = "";
+                document.getElementById("result7").innerHTML = "";
+              }
+            </script>
+        </div>
+		<div id="exo8">
+			<h2><a href="#retour">EXERCICE 8 :</a></h2>
+			<p><b>Énoncé :</b>Concatener deux chaines sauf leur premieres lettres :</p><br>
+				<input id="chaine1" type="text" required="required">
+				<input id="chaine2" type="text" required="required">
+				<button type="button" class="boutonR" onclick="concatC()">Valider</button>
+				<button type="button" class="boutonR" onclick="ResetC()">Reset</button>
+				<p id="resultC"></p><br>
+			<script>
+				function concatC(){
+					let a = document.getElementById("chaine1").value;
+					let b = document.getElementById("chaine2").value;
+					let result="";
+					a = a.substring(1,a.length);
+					b = b.substring(1,b.length);
+					result = a + b;
+					document.getElementById("resultC").innerHTML= "La concaténation des 2 chaînes sans leurs premières lettres donne : <b>" +result + "</b>";
+					}
+				function ResetC(){
+					document.getElementById("resultC").innerHTML="";
+					document.getElementById("chaine1").value="";
+					document.getElementById("chaine2").value="";
+				}
+			</script>
+		</div>
+		<div id="exo9">
+			<h2><a href="#retour">EXERCICE 9 :</a></h2>
+			<p><b>Énoncé :</b>Trouver dans un tableau de chaines laquelle est la plus longue :</p><br>
+			<input type="text" id="chaineL" required="required" minlength="1">
+			<button type="button" class="boutonR" onclick="ajout()">Ajouter</button>
+			<p id="ajouter"></p>
+			<button type="button" class="boutonR" onclick="long1()">Quel chaine est la plus longue ?</button>
+			<p id="resultL"></p>
+			<button type="button" class="boutonR" onclick="resetL()">Reset</button><br><br>
+			
+		<script>
+			let montab9 = [];
+			function ajout(){
+				let a = document.getElementById("chaineL").value;
+				montab9.push(a);
+				document.getElementById("ajouter").innerHTML = "<b> " + montab9 + " </b>";
+				document.getElementById("chaineL").value = "";
+			}
+			function long1(){
+			let result = 0;
+			let word = 0;
+				for(i=0;i<montab9.length;i++){
+					if(montab9[i].length > result){
+						result =  montab9[i].length;
+						word = montab9[i];
+					}
+				}
+			document.getElementById("resultL").innerHTML ="La chaîne de caractère la plus longue est : <b>" + word + "</b>";
+			}
+			
+			function resetL(){
+				montab9 = [];
+				document.getElementById("chaineL").value="";
+				document.getElementById("ajouter").innerHTML="";
+				document.getElementById("resultL").innerHTML="";
+			}
+		
+		</script>	
+		</div><br>
+	<div id="exo10">
+		<h2><a href="#retour">EXERCICE 10 :</a></h2>
+		<p><b>Énoncé :</b>Construire 3 tableaux d'entiers issus de la deconcatenation d'un tableau d'entiers à 3 chiffres :</p>
+		<input type="number" id="tab1" min-length="3" required="required" placeholder="Entrer 3x3 chiffres">
+		<button type="button" id="ajoutstop" class="boutonR" onclick="ajout3()">Ajouter</button>
+		<p id="ajouter3"></p>
+		<button type="button" class="boutonR" onclick="mix3()">Mixer</button>
+		<button type="button" class="boutonR" onclick="reset3()">Reset</button>
+		<p id="result3"></p><br><br>
+		
+	<script>
+    let montab10_0=[],montab10_1=[],montab10_2=[],montab10_3=[];
+		/*let montab10_0 = [];
+		let montab10_1 = [];
+		let montab10_2 = [];
+		let montab10_3 = [];*/
+		
+		function ajout3(){
+				let a = document.getElementById("tab1").value;
+				document.getElementById("tab1").value = "";
+					if(a.length===3){
+						montab10_0.push(a);
+						document.getElementById("ajouter3").innerHTML ="<b>[" + montab10_0 + "]</b>";
+					}
+					if(montab10_0.length===3){
+						document.getElementById("ajoutstop").disabled = true;
+					}
+			}
+			
+		function mix3(){
+			
+			  montab10_0 = montab10_0.join("");
+              montab10_1 = montab10_0[0] + montab10_0[3] + montab10_0[6];
+              montab10_2 = montab10_0[1] + montab10_0[4] + montab10_0[7];
+              montab10_3 = montab10_0[2] + montab10_0[5] + montab10_0[8];
+              document.getElementById("result3").innerHTML ="Les 3 nouveaux tableaux d'entiers sont : " + "<b>[ " + montab10_1 + " ] , [ " + montab10_2 + " ], [ " + montab10_3 + " ]</b>"; 
+			}
+		
+		
+		function reset3(){
+      /*for ( i = 0; i <= 3; i++){
+        montab10_.push(i)  = [];
+      }*/
+      montab10_0=[],montab10_1=[],montab10_2=[],montab10_3.length=0;
+      /*montab10_0 = [];
+		  montab10_1 = [];
+		  montab10_2 = [];
+		  montab10_3 = [];*/
+      document.getElementById("ajoutstop").disabled = false;
+			document.getElementById("tab1").value = "";
+			document.getElementById("ajouter3").innerHTML = "";
+			document.getElementById("result3").innerHTML = "";
+		}
+	</script>
+		
+	</div>
+	<!-- EXERCICE 11 -->
+      <!-- Construire un tableau aléatoire -->
+        <div id="exo11">
+          <!-- MISE EN PAGE DE L'EXERCICE -->
+          <h2><a href="#retour">EXERCICE 11 :</a></h2>
+            <p><b>Énoncé :</b> Construire un tableau aléatoire de 50 entiers à deux chiffres (0-99) et calculer le pourcentage d'apparition de chaque chiffre</p>
+          <!-- BOUTON, INPUT & RESULTATS -->
+            <button onclick="generator()" id="stop">Générer et Calculer</button>
+            <!--<button onclick="perCent()" id="stop1">Calculer</button>-->
+            <button onclick="reset11()">Reset</button><br><br>
+			<p id="resultG"></p><br>
+			<p id="resultP"></p><br><br>
+		<script>
+		function generator(){  //------------- Fonction qui génère un tableau et calcul le pourcentage de présence --------------------//
+        let numA=[];      //-------------- Les éléments commentés sont la même application en 2 fonctions donc 2 button ! ---------//
+		    let text_percent = "";
+		    let montabA = [];
+				for (i=0; i<49;i++){
+					numA[i] = Math.floor(Math.random() * 100);
+					numA.sort(function(a, b) {
+					return a - b;
+					});;
+				}
+        document.getElementById("resultG").innerHTML="<b>[ " + numA.join(" ") + " ]</b>";
+        //document.getElementById("stop").disabled=true;
+        //document.getElementById("stop1").disabled=false;
+      //}
+      //function perCent(){ 
+              for (let j = 0; j < numA.length ; j++) {
+                  if (montabA[numA[j]]){
+                    montabA[numA[j]] += 1;
+                   }
+                  else{
+                    montabA[numA[j]] = 1;
+                   } 
+                  }
+             for (let i=0; i<montabA.length; i++) {
+                if (montabA[i]) {
+                  text_percent +='<table border="1" width="45%" borderColor = "#4b685e"><tr><td>&nbsp;' + i + " est présent " +  "<b>" + montabA[i] + "</b> fois dans le tableau, pourcentage d'apparition : <b>" + Math.floor(montabA[i] / numA.length * 100) + "</b>%&nbsp;</td></tr></table>";
+                  }
+                  document.getElementById("resultP").innerHTML = text_percent; 
+                  //document.getElementById("stop1").disabled=true;
+               }
+              };
+      				
+			function reset11(){
+				montabA = [];
+				numA =[];
+				document.getElementById("resultG").innerHTML="";
+        document.getElementById("resultP").innerHTML="";
+        text_percent = "";
+       // document.getElementById("stop").disabled=false;
+			}
+		</script>
+    </div>
+    <!-- EXERCICE 12 -->
+      <!-- Trouver si dans deux chaines données, il est possible de ré-arranger l'une d'elles pour qu'elles soient egales -->
+      <div id="exo12">
+        <!-- MISE EN PAGE DE L'EXERCICE -->
+        <h2><a href="#retour">EXERCICE 12 :</a></h2>
+        <p><b>Énoncé :</b>Trouver si dans deux chaines données, il est possible de ré-arranger l'une d'elles pour qu'elles soient egales
+          <em>(c'est à dire vérifier qu'elles ont le même contenu, même dans le désordre)</em></p>
+          <!-- BOUTON, INPUT & RESULTATS -->
+          <input type="text" id ="chain_1">
+          <input type="text" id ="chain_2">
+          <button id ="valider">Valider</button><button id ="reset12">Reset</button><br><br>
+          <p id ="confirm"></p>
+          <p id ="result12"></p><br><br>
+     <script>
+         document.getElementById("valider").addEventListener("click",function findWord(){
+          let word1 = document.getElementById("chain_1").value;
+          let word2 = document.getElementById("chain_2").value;
+          let tab1 = word1.split(''), tab2 = word2.split('');
+        
+          for (let i = 0; i < tab1.length; i++) {
+          for (let j = i; j < tab2.length; j++) {
+            if (tab1.indexOf(tab2[j]) === -1) {
+             document.getElementById("result12").innerHTML= "Mais nous ne pouvons pas reconstituer une chaine identique car les caractères sont différents !";
+            } else if (tab1[i] === tab2[i]) {
+               break;
+              } else if (tab1[i] === tab2[j]) {
+                let temp = tab2[i];
+                tab2[i] = tab2[j];
+                tab2[j] = temp;
+              }
+            }
+          }
+      if (word1.length !== word2.length) {
+              document.getElementById("confirm").innerHTML = "Ces 2 chaines de caractères <b>[ " + word1 + " ]</b> et <b>[ " + word2 + " ]</b> ne sont pas égales !";
+              document.getElementById("result12").innerHTML= "<b>Nous ne pouvons donc pas réorganiser la chaine à l'identique !</b>"
+            } else if ( (word1.length == 0 || word2.length == 0)){
+              document.getElementById("confirm").innerHTML="Veuillez entrer 2 chaines de caractères de même longueur";
+              document.getElementById("result12").innerHTML="";
+              } else  {
+                    if(word1.length < 2 || word2.length < 2){
+                        document.getElementById("confirm").innerHTML = "Ces 2 chaines ont le même nombre de caractère";
+                    } else {
+                        document.getElementById("confirm").innerHTML = "Ces 2 chaines ont le même nombre de caractères";
+                    }
+                }
+      if((tab1.join("") === tab2.join("")) && (word1.length !== 0 || word2.length !== 0)){
+        document.getElementById("result12").innerHTML = "Et après <b>\"analyse\"</b> ou <b>\"réorganisation\"</b>, nous pouvons constater <b>leurs égalités : [ " + tab1.join("") + " ] " + " [ " + tab2.join("") + " ]</b>";
+      }
+});
+        document.getElementById("reset12").addEventListener("click",function reset(){
+          document.getElementById("chain_1").value = "";
+          document.getElementById("chain_2").value = "";
+          document.getElementById("result12").innerHTML = "";
+          document.getElementById("confirm").innerHTML = "";
+        });
+
+     </script>
+     </div>
+     <!-- EXERCICE 13 -->
+     <!-- Determiner si un point (a,b) est contenu dans un cercle de centre x,y et de rayon r -->
+     <div id="exo13">
+      <!-- MISE EN PAGE DE L'EXERCICE -->
+      <h2><a href="#retour">EXERCICE 13 :</a></h2>
+      <p><b>Énoncé :</b>Determiner si un point (a,b) est contenu dans un cercle de centre x,y et de rayon r (unités de mesure: <b>cm</b>)</p>
+        <!-- BOUTON, INPUT & RESULTATS --> 
+      <p class="coord0">entrez les coordonnées du point (<b>a,b</b>), les coordonnées du centre du cercle (<b>x,y</b>), et enfin, le rayon (<b>r</b>) du cercle :</p>
+      <input type="number" id="coord-0" class="coord1" placeholder="a">
+      <input type="number" id="coord-1" class="coord1" placeholder="b">
+      <input type="number" id="coord-2" class="coord1" placeholder="x">
+      <input type="number" id="coord-3" class="coord1" placeholder="y">
+      <input type="number" id="coord-4" class="coord1" placeholder="r">
+      <button id="verifP">Valider</button>
+      <button id="reset13">Reset</button>
+      <p id="result13"></p><br><br><br>
+      <script>
+        document.getElementById("verifP").addEventListener("click", function check_a_point() {
+          let a = document.getElementById("coord-0").value;
+          let b = document.getElementById("coord-1").value;
+          let x = document.getElementById("coord-2").value;
+          let y = document.getElementById("coord-3").value;
+          let r = document.getElementById("coord-4").value;
+          let distanceP = (a - x) * (a - x) + (b - y) * (b - y);  // Math.sqrt(Math.pow((a - x), 2) + Math.pow((b - y), 2));
+          r *= r;
+          if (distanceP < r) {
+            document.getElementById("result13").innerHTML = "Les coordonnées du point (<b>a,b</b>) sont <b>contenus</b> dans la cercle !"
+            } else if (distanceP == r){
+              document.getElementById("result13").innerHTML = "Les coordonnées du point (<b>a,b</b>) sont <b>sur</b> le cercle !"
+              } else {
+                document.getElementById("result13").innerHTML = "Les coordonnées du point (<b>a,b</b>) sont <b>en dehors</b> du cercle !"
+            }});
+
+        document.getElementById("reset13").addEventListener("click",function reset(){
+          for (i=0;i<6;i++){
+            document.getElementById("coord-"+i).value="";
+            document.getElementById("result13").innerHTML = "";
+          }
+         });
+
+            
+      </script>
+    </div>    
+   </section>
+   <footer><a href="#retour">
+      <p class="fin">Copyright 2017 - beWeb - Tous droits réservés © propulsé par Fondespierre</p></a>
+   </footer>
+   <script>
+    function toggle(anId){
+        node = document.getElementById(anId);
+          if (node.style.visibility=="hidden" || node.style.display=="none"){
+      // Contenu caché, le montrer
+          node.style.visibility = "visible";
+      node.style.display = "block";
+          node.style.height = "auto";			// Optionnel rétablir la hauteur
+      }
+        else {
+      // Contenu visible, le cacher
+      node.style.visibility = "hidden";
+  node.style.display = "none";
+      node.style.height = "0";			// Optionnel libérer l'espace
+  }
+}
+  </script>
+  </body>
+</html>
